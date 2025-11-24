@@ -44,56 +44,46 @@ class BST:
     def level_order(self):
         if self.root is None:
             return []
-
         queue = [self.root]
         result = []
-
         while queue:
             node = queue.pop(0)
             result.append(node.value)
-
             if node.left:
                 queue.append(node.left)
             if node.right:
                 queue.append(node.right)
-
         return result
 
     def pre_order(self):
         result = []
-
         def _pre(node):
             if not node:
                 return
             result.append(node.value)
             _pre(node.left)
             _pre(node.right)
-
         _pre(self.root)
         return result
 
     def in_order(self):
         result = []
-
         def _in(node):
             if not node:
                 return
             _in(node.left)
             result.append(node.value)
             _in(node.right)
-
         _in(self.root)
         return result
 
     def post_order(self):
         result = []
-
         def _post(node):
             if not node:
                 return
             _post(node.left)
             _post(node.right)
             result.append(node.value)
-
         _post(self.root)
         return result
