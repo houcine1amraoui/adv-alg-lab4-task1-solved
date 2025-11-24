@@ -6,7 +6,7 @@ class Node:
 
 class BST:
     def __init__(self):
-        # create the bst shown in bst.png
+        # Create the BST shown in bst.png
         self.root = Node(7)
         self.root.left = Node(4)
         self.root.right = Node(9)
@@ -20,16 +20,15 @@ class BST:
     def search_iterative(self, value):
         current = self.root
         while current:
-            # complete code here
             if current.value == value:
                 return True
             if value < current.value:
-                current = current.left  
-            else: 
+                current = current.left
+            else:
                 current = current.right
         return False
-    
-    def search_recrusive(self, value):
+
+    def search_recursive(self, value):
         def _search(node, value):
             if node is None:
                 return False
@@ -43,45 +42,58 @@ class BST:
         return _search(self.root, value)
     
     def level_order(self):
-        # put your code here
-        if self.root == None:
-            return
-        q = [] # my_queue = Queue()
-        print(self.root.value, end=" -> ")
-        q.append(self.root)
-        while q != []:
-            p = q.pop(0)
-            if p.left:
-                print(p.left.value, end=" ->")
-                q.append(p.left)
+        if self.root is None:
+            return []
 
-            if p.right:
-                print(p.right.value, end=" ->")
-                q.append(p.right)
+        queue = [self.root]
+        result = []
+
+        while queue:
+            node = queue.pop(0)
+            result.append(node.value)
+
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+
+        return result
 
     def pre_order(self):
-        # put your code here
-        def _pre_order(node):
-            if node:
-                print(node.value)
-                _pre_order(node.left)
-                _pre_order(node.right)
-        return _pre_order(self.root)
+        result = []
+
+        def _pre(node):
+            if not node:
+                return
+            result.append(node.value)
+            _pre(node.left)
+            _pre(node.right)
+
+        _pre(self.root)
+        return result
 
     def in_order(self):
-        # put your code here
-        def _in_order(node):
-            if node:
-                _in_order(node.left)
-                print(node.value)
-                _in_order(node.right)
-        return _in_order(self.root)
+        result = []
+
+        def _in(node):
+            if not node:
+                return
+            _in(node.left)
+            result.append(node.value)
+            _in(node.right)
+
+        _in(self.root)
+        return result
 
     def post_order(self):
-        # put your code here
-        def _post_order(node):
-            if node:
-                _post_order(node.left)
-                _post_order(node.right)
-                print(node.value)
-        return _post_order(self.root)
+        result = []
+
+        def _post(node):
+            if not node:
+                return
+            _post(node.left)
+            _post(node.right)
+            result.append(node.value)
+
+        _post(self.root)
+        return result
