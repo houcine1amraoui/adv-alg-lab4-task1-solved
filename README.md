@@ -1,5 +1,16 @@
 # Time and Space Complexity Analysis
 
+Let:
+
+- h = height of the BST
+- n = number of nodes
+
+⚠ Note: In a balanced BST,
+
+- h = log n
+  In a worst-case unbalanced BST (like a linked list),
+- h = n
+
 | Method               | Time     | Space    | Notes              |
 | -------------------- | -------- | -------- | ------------------ |
 | **search_iterative** | **O(h)** | **O(1)** | h = height         |
