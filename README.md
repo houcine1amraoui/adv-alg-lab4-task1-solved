@@ -5,11 +5,10 @@ Let:
 - h = height of the BST
 - n = number of nodes
 
-⚠ Note: In a balanced BST,
+So:
 
-- h = log n
-  In a worst-case unbalanced BST (like a linked list),
-- h = n
+- In a balanced BST: h = log n
+- In a worst-case unbalanced BST (like a linked list): h = n
 
 | Method               | Time     | Space    | Notes              |
 | -------------------- | -------- | -------- | ------------------ |
