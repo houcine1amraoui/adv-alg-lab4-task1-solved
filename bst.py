@@ -17,8 +17,6 @@ class BST:
         self.root.left.left.left = Node(0)
         self.root.right.right.right = Node(16)
 
-    
-
     def search_iterative(self, value):
         current = self.root
         while current:
