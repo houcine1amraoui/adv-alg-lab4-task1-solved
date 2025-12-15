@@ -17,23 +17,7 @@ class BST:
         self.root.left.left.left = Node(0)
         self.root.right.right.right = Node(16)
 
-    def is_valid(self):
-        def _is_valid(node, min_val, max_val):
-            if node is None:
-                return True
-
-            # The current node must be strictly between (min_val, max_val)
-            if not (min_val < node.value < max_val):
-                return False
-
-            # Left subtree must be < node.value
-            # Right subtree must be > node.value
-            return (_is_valid(node.left, min_val, node.value) and
-                    _is_valid(node.right, node.value, max_val))
-
-        # Start with infinite bounds
-        return _is_valid(self.root, float("-inf"), float("inf"))
-
+    
 
     def search_iterative(self, value):
         current = self.root
